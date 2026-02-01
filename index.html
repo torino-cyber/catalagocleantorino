@@ -7,170 +7,184 @@
 
 <style>
 body {
-  font-family: Arial, sans-serif;
-  background: #f9f9f9;
   margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f7f7f5;
+  color: #111;
+}
+
+header {
   padding: 20px;
-  color: #222;
+  border-bottom: 1px solid #ddd;
 }
 
-h1, h2 {
-  text-align: center;
+header h1 {
+  margin: 0;
+  font-size: 22px;
 }
 
-.category {
-  margin-top: 40px;
-}
-
-.products {
-  display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
-  gap: 20px;
-}
-
-.product {
+.regras {
   background: #fff;
   padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,.05);
+  margin: 20px;
+  border-left: 4px solid #000;
+  font-size: 14px;
 }
 
-.product img {
+.categoria {
+  margin: 30px 20px 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.produtos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 0 20px 40px;
+}
+
+.produto {
+  background: #fff;
+  padding: 15px;
+  border: 1px solid #ddd;
+}
+
+.produto img {
   width: 100%;
-  border-radius: 6px;
+  height: 200px;
+  object-fit: cover;
+  background: #eee;
 }
 
-.product select, .product button {
+.produto h3 {
+  font-size: 14px;
+  margin: 10px 0 5px;
+}
+
+.produto p {
+  font-size: 13px;
+  margin: 0 0 10px;
+}
+
+.produto button {
   width: 100%;
   padding: 10px;
-  margin-top: 10px;
-}
-
-button {
+  margin-top: 5px;
+  border: none;
   background: #000;
   color: #fff;
-  border: none;
-  border-radius: 6px;
   cursor: pointer;
 }
 
-#cart {
-  background: #fff;
-  padding: 20px;
-  margin-top: 40px;
-  border-radius: 8px;
+.produto button:hover {
+  opacity: 0.9;
 }
 
-input, select {
+/* Carrinho */
+.carrinho {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background: #fff;
+  border-left: 1px solid #ddd;
+  padding: 15px;
+  overflow-y: auto;
+}
+
+.carrinho h2 {
+  font-size: 16px;
+  margin-top: 0;
+}
+
+.item {
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.finalizar {
   width: 100%;
-  padding: 10px;
-  margin-top: 10px;
+  padding: 12px;
+  background: #000;
+  color: #fff;
+  border: none;
+  margin-top: 15px;
+  cursor: pointer;
 }
 </style>
 </head>
 
 <body>
 
-<h1>TORINO — Catálogo Atacado</h1>
-<p style="text-align:center;">
-Pedido mínimo: <strong>24 peças por modelo</strong> ou <strong>Caixa fechada</strong>
-</p>
+<header>
+  <h1>TORINO — Catálogo Atacado</h1>
+</header>
 
-<!-- FEMININO -->
-<div class="category">
-<h2>Feminino • Primavera / Verão</h2>
-<div class="products">
-  <div class="product">
-    <img src="https://via.placeholder.com/300">
-    <h3>Vestido Floral</h3>
-    <select onchange="addOption(this, 'Vestido Floral')">
-      <option value="">Escolha</option>
-      <option value="Grade - 24 peças - R$ 1.200">Grade (24 peças)</option>
-      <option value="Caixa - 200 peças - R$ 8.500">Caixa (200 peças)</option>
-    </select>
+<div class="regras">
+<b>Regras de Compra:</b><br>
+• Venda exclusiva para atacado<br>
+• Pedido mínimo: 24 peças por modelo (grade)<br>
+• Opção de caixa fechada conforme disponibilidade<br>
+• Pedido finalizado via WhatsApp
+</div>
+
+<div class="categoria">FEMININO — Primavera / Verão</div>
+<div class="produtos">
+
+  <div class="produto">
+    <img src="https://via.placeholder.com/300x200">
+    <h3>Vestido Modelo 001</h3>
+    <p>Grade: 24 peças</p>
+    <button onclick="addCarrinho('Vestido 001 - Grade (24)')">Adicionar Grade</button>
+    <button onclick="addCarrinho('Vestido 001 - Caixa (200)')">Adicionar Caixa</button>
   </div>
-</div>
-</div>
 
-<!-- MASCULINO -->
-<div class="category">
-<h2>Masculino • Outono / Inverno</h2>
-<div class="products">
-  <div class="product">
-    <img src="https://via.placeholder.com/300">
-    <h3>Jaqueta Térmica</h3>
-    <select onchange="addOption(this, 'Jaqueta Térmica')">
-      <option value="">Escolha</option>
-      <option value="Grade - 24 peças - R$ 1.800">Grade (24 peças)</option>
-      <option value="Caixa - 150 peças - R$ 10.200">Caixa (150 peças)</option>
-    </select>
+  <div class="produto">
+    <img src="https://via.placeholder.com/300x200">
+    <h3>Conjunto Modelo 002</h3>
+    <p>Grade: 24 peças</p>
+    <button onclick="addCarrinho('Conjunto 002 - Grade (24)')">Adicionar Grade</button>
+    <button onclick="addCarrinho('Conjunto 002 - Caixa (200)')">Adicionar Caixa</button>
   </div>
-</div>
-</div>
 
-<!-- INFANTIL -->
-<div class="category">
-<h2>Infantil • Primavera / Verão</h2>
-<div class="products">
-  <div class="product">
-    <img src="https://via.placeholder.com/300">
-    <h3>Conjunto Infantil</h3>
-    <select onchange="addOption(this, 'Conjunto Infantil')">
-      <option value="">Escolha</option>
-      <option value="Grade - 24 peças - R$ 980">Grade (24 peças)</option>
-      <option value="Caixa - 120 peças - R$ 4.900">Caixa (120 peças)</option>
-    </select>
-  </div>
-</div>
 </div>
 
-<!-- CARRINHO -->
-<div id="cart">
-<h2>Carrinho</h2>
-<ul id="cartItems"></ul>
-
-<h3>Finalizar Pedido</h3>
-<input id="name" placeholder="Nome completo">
-<input id="email" placeholder="E-mail">
-<select id="shipping">
-  <option value="Transportadora">Transportadora</option>
-  <option value="Correios">Correios</option>
-  <option value="Retirada">Retirada em loja</option>
-</select>
-
-<button onclick="checkout()">Enviar Pedido no WhatsApp</button>
+<!-- Carrinho -->
+<div class="carrinho">
+  <h2>Carrinho</h2>
+  <div id="itens"></div>
+  <button class="finalizar" onclick="finalizarPedido()">Finalizar Pedido</button>
 </div>
 
 <script>
-let cart = [];
+let carrinho = [];
 
-function addOption(select, product) {
-  if (!select.value) return;
-  cart.push(product + " - " + select.value);
-  renderCart();
+function addCarrinho(item) {
+  carrinho.push(item);
+  renderCarrinho();
 }
 
-function renderCart() {
-  const ul = document.getElementById("cartItems");
-  ul.innerHTML = "";
-  cart.forEach(item => {
-    const li = document.createElement("li");
-    li.textContent = item;
-    ul.appendChild(li);
+function renderCarrinho() {
+  const div = document.getElementById("itens");
+  div.innerHTML = "";
+  carrinho.forEach(i => {
+    div.innerHTML += `<div class="item">• ${i}</div>`;
   });
 }
 
-function checkout() {
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const shipping = document.getElementById("shipping").value;
+function finalizarPedido() {
+  if (carrinho.length === 0) {
+    alert("Carrinho vazio");
+    return;
+  }
 
-  let message = `Pedido Atacado TORINO%0A%0A`;
-  message += `Cliente: ${name}%0AEmail: ${email}%0AEnvio: ${shipping}%0A%0AProdutos:%0A`;
+  let texto = "Pedido Atacado TORINO:%0A%0A";
+  carrinho.forEach(i => texto += `- ${i}%0A`);
 
-  cart.forEach(i => message += `- ${i}%0A`);
-
-  window.open(`https://wa.me/5511939586226?text=${message}`, "_blank");
+  const telefone = "5511939586226";
+  window.open(`https://wa.me/${telefone}?text=${texto}`, "_blank");
 }
 </script>
 
