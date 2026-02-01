@@ -1,38 +1,36 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #f7f6f2; /* offwhite */
   margin: 0;
-  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #f7f6f2;
 }
 
-.topo {
-  text-align: center;
+header {
   padding: 20px;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
 }
 
-.categoria {
-  margin: 40px;
+main {
+  padding: 20px;
+  margin-right: 260px;
 }
 
-.subcategoria {
-  margin-top: 20px;
-}
-
-.grupo h4 {
-  margin: 15px 0 10px;
+h3 {
+  margin-top: 40px;
 }
 
 .produtos {
   display: flex;
-  gap: 15px;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
 .produto {
   background: #fff;
-  border: 1px solid #ddd;
-  padding: 10px;
-  width: 180px;
+  padding: 15px;
+  width: 220px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.08);
 }
 
 .produto button {
@@ -44,65 +42,52 @@ body {
   cursor: pointer;
 }
 
-.carrinho {
+#carrinho {
   position: fixed;
-  right: 0;
   top: 0;
-  width: 260px;
-  height: 100%;
+  right: 0;
+  width: 240px;
+  height: 100vh;
   background: #fff;
-  border-left: 2px solid #000;
   padding: 15px;
-}
-.tipo-atacado {
-  background: #ffffff;
-  border-bottom: 1px solid #ddd;
-  padding: 30px 20px;
-  text-align: center;
+  border-left: 1px solid #ddd;
 }
 
-.tipo-atacado h2 {
-  font-size: 18px;
-  margin-bottom: 15px;
-  letter-spacing: 1px;
-}
-
-.opcoes-atacado {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-}
-
-.opcoes-atacado button {
-  padding: 12px 20px;
+#carrinho button {
   background: #000;
   color: #fff;
   border: none;
-  font-size: 14px;
+  padding: 10px;
+  width: 100%;
+}
+
+/* OVERLAY ATACADO */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.overlay .box {
+  background: #fff;
+  padding: 30px;
+  max-width: 400px;
+  text-align: center;
+}
+
+.overlay button {
+  margin: 10px;
+  padding: 10px 20px;
+  background: #000;
+  color: #fff;
+  border: none;
   cursor: pointer;
 }
 
-.opcoes-atacado button:hover {
-  opacity: 0.9;
-}
-
-.info-atacado {
-  max-width: 700px;
-  margin: 0 auto;
-  font-size: 14px;
-  color: #444;
-}
-
-.info-atacado p {
-  margin-bottom: 10px;
-}
-/* CONTROLE DE TIPO DE ATACADO */
-.modo-grade .bloco-caixa {
-  display: none;
-}
-
-.modo-caixa .bloco-grade {
-  display: none;
-}
+/* CONTROLE */
+.modo-grade .bloco-caixa { display: none; }
+.modo-caixa .bloco-grade { display: none; }
