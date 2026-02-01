@@ -51,3 +51,19 @@ function finalizarPedido() {
   const msg = `Pedido Atacado:%0A${carrinho.map(i => i.nome).join("%0A")}%0ATotal: R$ ${total}`;
   window.open(`https://wa.me/5511939586226?text=${msg}`);
 }
+let tipoAtacadoSelecionado = null;
+
+function selecionarAtacado(tipo) {
+  tipoAtacadoSelecionado = tipo;
+
+  document.getElementById("tipoAtacado").style.display = "none";
+
+  // Aqui você controla o comportamento depois
+  if (tipo === "grade") {
+    document.body.classList.add("modo-grade");
+    document.body.classList.remove("modo-caixa");
+  } else {
+    document.body.classList.add("modo-caixa");
+    document.body.classList.remove("modo-grade");
+  }
+}
