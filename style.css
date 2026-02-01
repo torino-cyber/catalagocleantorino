@@ -98,3 +98,11 @@ body {
 .info-atacado p {
   margin-bottom: 10px;
 }
+/* CONTROLE DE TIPO DE ATACADO */
+.modo-grade .bloco-caixa {
+  display: none;
+}
+
+.modo-caixa .bloco-grade {
+  display: none;
+}
