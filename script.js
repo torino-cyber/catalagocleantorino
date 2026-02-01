@@ -179,3 +179,14 @@ function selecionarAtacado(tipo) {
     document.body.classList.remove("modo-grade");
   }
 }
+function selecionarAtacado(tipo) {
+  document.getElementById("tipoAtacado").style.display = "none";
+
+  document.body.classList.remove("modo-grade", "modo-caixa");
+
+  if (tipo === "grade") {
+    document.body.classList.add("modo-grade");
+  } else {
+    document.body.classList.add("modo-caixa");
+  }
+}
