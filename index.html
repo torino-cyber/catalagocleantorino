@@ -1,43 +1,74 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <title>Torino | Catálogo Atacado</title>
-  <link rel="stylesheet" href="style.css">
-</head>
 <body>
 
-<header>
-  <h1>TORINO · CATÁLOGO ATACADO</h1>
-  <p>Pedidos mínimos por grade ou caixa fechada</p>
+<header class="topo">
+  <h1>CATÁLOGO ATACADO</h1>
+  <p>Pedido mínimo: 24 peças por modelo</p>
 </header>
 
-<section class="filters">
-  <select id="categoryFilter">
-    <option value="all">Todas Categorias</option>
-    <option value="Feminino">Feminino</option>
-    <option value="Masculino">Masculino</option>
-    <option value="Infantil">Infantil</option>
-  </select>
+<div class="container">
 
-  <select id="seasonFilter">
-    <option value="all">Todas Estações</option>
-    <option value="Primavera/Verão">Primavera / Verão</option>
-    <option value="Outono/Inverno">Outono / Inverno</option>
-  </select>
-</section>
+  <!-- MASCULINO -->
+  <section class="categoria">
+    <h2>Masculino</h2>
 
-<main id="productList"></main>
+    <div class="subcategoria">
+      <h3>Primavera / Verão</h3>
 
-<!-- CARRINHO -->
-<aside id="cart">
-  <h2>Carrinho</h2>
-  <div id="cartItems"></div>
-  <p class="total">Total: R$ <span id="cartTotal">0,00</span></p>
-  <button onclick="checkout()">Finalizar Pedido</button>
+      <div class="grupo">
+        <h4>Shorts</h4>
+        <div class="produtos" id="masc-pv-shorts"></div>
+      </div>
+
+      <div class="grupo">
+        <h4>Calças</h4>
+        <div class="produtos" id="masc-pv-calcas"></div>
+      </div>
+
+      <div class="grupo">
+        <h4>Camisetas</h4>
+        <div class="produtos" id="masc-pv-camisetas"></div>
+      </div>
+
+      <div class="grupo">
+        <h4>Conjuntos</h4>
+        <div class="produtos" id="masc-pv-conjuntos"></div>
+      </div>
+    </div>
+
+    <div class="subcategoria">
+      <h3>Outono / Inverno</h3>
+
+      <div class="grupo">
+        <h4>Bobojaco</h4>
+        <div class="produtos" id="masc-oi-bobojaco"></div>
+      </div>
+
+      <div class="grupo">
+        <h4>Jaqueta de Couro</h4>
+        <div class="produtos" id="masc-oi-couro"></div>
+      </div>
+
+      <div class="grupo">
+        <h4>Casaco de Lã Batida</h4>
+        <div class="produtos" id="masc-oi-la"></div>
+      </div>
+
+      <div class="grupo">
+        <h4>Moletom</h4>
+        <div class="produtos" id="masc-oi-moletom"></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- CARRINHO FIXO -->
+<aside class="carrinho">
+  <h3>Carrinho</h3>
+  <div id="itensCarrinho"></div>
+  <p>Total: R$ <span id="total">0,00</span></p>
+  <button onclick="finalizarPedido()">Finalizar Pedido</button>
 </aside>
 
-<script src="data.js"></script>
 <script src="script.js"></script>
 </body>
-</html>
