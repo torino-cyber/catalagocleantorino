@@ -15,14 +15,9 @@ main {
   margin-right: 260px;
 }
 
-h3 {
-  margin-top: 40px;
-}
-
 .produtos {
   display: flex;
   gap: 20px;
-  flex-wrap: wrap;
 }
 
 .produto {
@@ -30,14 +25,16 @@ h3 {
   padding: 15px;
   width: 220px;
   border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,.08);
+  box-shadow: 0 2px 6px rgba(0,0,0,.1);
 }
 
-.produto button {
+.produto button,
+#carrinho button,
+.overlay button {
   background: #000;
   color: #fff;
   border: none;
-  padding: 8px;
+  padding: 10px;
   width: 100%;
   cursor: pointer;
 }
@@ -53,15 +50,6 @@ h3 {
   border-left: 1px solid #ddd;
 }
 
-#carrinho button {
-  background: #000;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  width: 100%;
-}
-
-/* OVERLAY ATACADO */
 .overlay {
   position: fixed;
   inset: 0;
@@ -74,20 +62,21 @@ h3 {
 
 .overlay .box {
   background: #fff;
-  padding: 30px;
-  max-width: 400px;
+  padding: 25px;
+  width: 320px;
   text-align: center;
 }
 
-.overlay button {
-  margin: 10px;
-  padding: 10px 20px;
-  background: #000;
-  color: #fff;
-  border: none;
-  cursor: pointer;
+.overlay input,
+.overlay select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
 }
 
-/* CONTROLE */
+.hidden {
+  display: none;
+}
+
 .modo-grade .bloco-caixa { display: none; }
 .modo-caixa .bloco-grade { display: none; }
