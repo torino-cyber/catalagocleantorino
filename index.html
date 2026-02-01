@@ -1,92 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Catálogo Atacado | Torino</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
 <body>
-<section id="tipoAtacado" class="tipo-atacado">
-  <h2>Escolha o tipo de atacado</h2>
 
-  <div class="opcoes-atacado">
-    <button onclick="selecionarAtacado('grade')">
-      Atacado Grade
-    </button>
+<!-- ESCOLHA DO TIPO DE ATACADO -->
+<div id="tipoAtacado" class="overlay">
+  <div class="box">
+    <h1>Catálogo Atacado Torino</h1>
 
-    <button onclick="selecionarAtacado('caixa')">
-      Atacado Caixa
-    </button>
+    <p><strong>Atacado Grade:</strong><br>
+      Pacote fechado com mínimo de 24 peças por modelo,
+      seguindo cores e tamanhos disponíveis.
+    </p>
+
+    <p><strong>Atacado Caixa:</strong><br>
+      Quantidade maior. Cada modelo possui quantidade diferente
+      podendo variar conforme o produto.
+    </p>
+
+    <div class="buttons">
+      <button onclick="selecionarAtacado('grade')">Atacado Grade</button>
+      <button onclick="selecionarAtacado('caixa')">Atacado Caixa</button>
+    </div>
   </div>
+</div>
 
-  <div class="info-atacado">
-    <p><strong>Atacado Grade:</strong> pacote mínimo de <strong>24 peças por modelo</strong>, seguindo <strong>todas as cores e tamanhos disponíveis</strong> do modelo escolhido.</p>
-
-    <p><strong>Atacado Caixa:</strong> compra em <strong>quantidade maior</strong>, onde <strong>cada modelo possui uma quantidade específica de peças</strong>, podendo variar de acordo com o modelo.</p>
-  </div>
-</section>
-<header class="topo">
-  <h1>CATÁLOGO ATACADO</h1>
-  <p>Pedido mínimo: 24 peças por modelo</p>
+<!-- TOPO -->
+<header>
+  <h2>Catálogo Atacado</h2>
 </header>
 
-<div class="container">
+<!-- CONTEÚDO -->
+<main>
 
   <!-- MASCULINO -->
-  <section class="categoria">
-    <h2>Masculino</h2>
-
-    <div class="subcategoria">
-      <h3>Primavera / Verão</h3>
-
-      <div class="grupo">
-        <h4>Shorts</h4>
-        <div class="produtos" id="masc-pv-shorts"></div>
-      </div>
-
-      <div class="grupo">
-        <h4>Calças</h4>
-        <div class="produtos" id="masc-pv-calcas"></div>
-      </div>
-
-      <div class="grupo">
-        <h4>Camisetas</h4>
-        <div class="produtos" id="masc-pv-camisetas"></div>
-      </div>
-
-      <div class="grupo">
-        <h4>Conjuntos</h4>
-        <div class="produtos" id="masc-pv-conjuntos"></div>
+  <section>
+    <h3>Masculino • Primavera / Verão</h3>
+    <div class="produtos">
+      <div class="produto bloco-grade bloco-caixa">
+        <h4>Short Masculino</h4>
+        <p>Mín: 24 peças (grade)</p>
+        <p>Caixa: variável</p>
+        <p>R$ 39,90 / peça</p>
+        <button onclick="addCarrinho('Short Masculino', 39.90)">Adicionar</button>
       </div>
     </div>
 
-    <div class="subcategoria">
-      <h3>Outono / Inverno</h3>
-
-      <div class="grupo">
-        <h4>Bobojaco</h4>
-        <div class="produtos" id="masc-oi-bobojaco"></div>
-      </div>
-
-      <div class="grupo">
-        <h4>Jaqueta de Couro</h4>
-        <div class="produtos" id="masc-oi-couro"></div>
-      </div>
-
-      <div class="grupo">
-        <h4>Casaco de Lã Batida</h4>
-        <div class="produtos" id="masc-oi-la"></div>
-      </div>
-
-      <div class="grupo">
-        <h4>Moletom</h4>
-        <div class="produtos" id="masc-oi-moletom"></div>
+    <h3>Masculino • Outono / Inverno</h3>
+    <div class="produtos">
+      <div class="produto bloco-grade bloco-caixa">
+        <h4>Bobojaco Masculino</h4>
+        <p>Mín: 24 peças (grade)</p>
+        <p>Caixa: 200 peças</p>
+        <p>R$ 129,90 / peça</p>
+        <button onclick="addCarrinho('Bobojaco Masculino', 129.90)">Adicionar</button>
       </div>
     </div>
   </section>
 
-</div>
+  <!-- FEMININO -->
+  <section>
+    <h3>Feminino • Primavera / Verão</h3>
+    <div class="produtos">
+      <div class="produto bloco-grade bloco-caixa">
+        <h4>Camiseta Feminina</h4>
+        <p>Mín: 24 peças</p>
+        <p>Caixa: variável</p>
+        <p>R$ 34,90 / peça</p>
+        <button onclick="addCarrinho('Camiseta Feminina', 34.90)">Adicionar</button>
+      </div>
+    </div>
 
-<!-- CARRINHO FIXO -->
-<aside class="carrinho">
+    <h3>Feminino • Outono / Inverno</h3>
+    <div class="produtos">
+      <div class="produto bloco-grade bloco-caixa">
+        <h4>Puffer Feminina</h4>
+        <p>Mín: 24 peças</p>
+        <p>Caixa: 200 peças</p>
+        <p>R$ 149,90 / peça</p>
+        <button onclick="addCarrinho('Puffer Feminina', 149.90)">Adicionar</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFANTIL -->
+  <section>
+    <h3>Infantil</h3>
+    <div class="produtos">
+      <div class="produto bloco-grade bloco-caixa">
+        <h4>Bobojaco Infantil</h4>
+        <p>Mín: 24 peças</p>
+        <p>Caixa: variável</p>
+        <p>R$ 99,90 / peça</p>
+        <button onclick="addCarrinho('Bobojaco Infantil', 99.90)">Adicionar</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- CARRINHO -->
+<aside id="carrinho">
   <h3>Carrinho</h3>
-  <div id="itensCarrinho"></div>
-  <p>Total: R$ <span id="total">0,00</span></p>
+  <ul id="listaCarrinho"></ul>
+  <p id="total"></p>
+
   <button onclick="finalizarPedido()">Finalizar Pedido</button>
 </aside>
 
 <script src="script.js"></script>
 </body>
+</html>
