@@ -1,75 +1,53 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f7f5f2;
-  color: #222;
+const produtos = [
+  {
+    nome: "Shorts Dry Fit Masculino",
+    preco: 25,
+    container: "masc-pv-shorts"
+  },
+  {
+    nome: "Camiseta Poliamida Masculina",
+    preco: 29,
+    container: "masc-pv-camisetas"
+  },
+  {
+    nome: "Bobojaco Masculino",
+    preco: 120,
+    container: "masc-oi-bobojaco"
+  }
+];
+
+const carrinho = [];
+let total = 0;
+
+produtos.forEach(p => {
+  const div = document.getElementById(p.container);
+  div.innerHTML += `
+    <div class="produto">
+      <p>${p.nome}</p>
+      <p>R$ ${p.preco}</p>
+      <button onclick="addCarrinho('${p.nome}', ${p.preco})">
+        Adicionar
+      </button>
+    </div>
+  `;
+});
+
+function addCarrinho(nome, preco) {
+  carrinho.push({ nome, preco });
+  total += preco;
+  atualizarCarrinho();
 }
 
-header {
-  text-align: center;
-  padding: 20px;
+function atualizarCarrinho() {
+  const area = document.getElementById("itensCarrinho");
+  area.innerHTML = "";
+  carrinho.forEach(i => {
+    area.innerHTML += `<p>${i.nome}</p>`;
+  });
+  document.getElementById("total").innerText = total.toFixed(2);
 }
 
-.filters {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-select {
-  padding: 8px;
-}
-
-#productList {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 20px;
-  padding: 20px;
-}
-
-.product {
-  background: #fff;
-  padding: 15px;
-  border-radius: 6px;
-}
-
-.product h3 {
-  margin: 0 0 10px;
-}
-
-.product button {
-  width: 100%;
-  padding: 10px;
-  background: #000;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  margin-top: 5px;
-}
-
-#cart {
-  position: fixed;
-  right: 0;
-  top: 0;
-  width: 300px;
-  height: 100%;
-  background: #fff;
-  padding: 15px;
-  border-left: 1px solid #ddd;
-  overflow-y: auto;
-}
-
-#cart button {
-  width: 100%;
-  padding: 12px;
-  background: #000;
-  color: #fff;
-  border: none;
-  margin-top: 10px;
-}
-
-.total {
-  font-weight: bold;
-  margin-top: 10px;
+function finalizarPedido() {
+  const msg = `Pedido Atacado:%0A${carrinho.map(i => i.nome).join("%0A")}%0ATotal: R$ ${total}`;
+  window.open(`https://wa.me/5511939586226?text=${msg}`);
 }
