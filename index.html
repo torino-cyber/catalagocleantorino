@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>TORINO | Catálogo Atacado</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  margin: 0;
+  padding: 20px;
+  color: #222;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+.category {
+  margin-top: 40px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+  gap: 20px;
+}
+
+.product {
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.05);
+}
+
+.product img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.product select, .product button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+button {
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#cart {
+  background: #fff;
+  padding: 20px;
+  margin-top: 40px;
+  border-radius: 8px;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>TORINO — Catálogo Atacado</h1>
+<p style="text-align:center;">
+Pedido mínimo: <strong>24 peças por modelo</strong> ou <strong>Caixa fechada</strong>
+</p>
+
+<!-- FEMININO -->
+<div class="category">
+<h2>Feminino • Primavera / Verão</h2>
+<div class="products">
+  <div class="product">
+    <img src="https://via.placeholder.com/300">
+    <h3>Vestido Floral</h3>
+    <select onchange="addOption(this, 'Vestido Floral')">
+      <option value="">Escolha</option>
+      <option value="Grade - 24 peças - R$ 1.200">Grade (24 peças)</option>
+      <option value="Caixa - 200 peças - R$ 8.500">Caixa (200 peças)</option>
+    </select>
+  </div>
+</div>
+</div>
+
+<!-- MASCULINO -->
+<div class="category">
+<h2>Masculino • Outono / Inverno</h2>
+<div class="products">
+  <div class="product">
+    <img src="https://via.placeholder.com/300">
+    <h3>Jaqueta Térmica</h3>
+    <select onchange="addOption(this, 'Jaqueta Térmica')">
+      <option value="">Escolha</option>
+      <option value="Grade - 24 peças - R$ 1.800">Grade (24 peças)</option>
+      <option value="Caixa - 150 peças - R$ 10.200">Caixa (150 peças)</option>
+    </select>
+  </div>
+</div>
+</div>
+
+<!-- INFANTIL -->
+<div class="category">
+<h2>Infantil • Primavera / Verão</h2>
+<div class="products">
+  <div class="product">
+    <img src="https://via.placeholder.com/300">
+    <h3>Conjunto Infantil</h3>
+    <select onchange="addOption(this, 'Conjunto Infantil')">
+      <option value="">Escolha</option>
+      <option value="Grade - 24 peças - R$ 980">Grade (24 peças)</option>
+      <option value="Caixa - 120 peças - R$ 4.900">Caixa (120 peças)</option>
+    </select>
+  </div>
+</div>
+</div>
+
+<!-- CARRINHO -->
+<div id="cart">
+<h2>Carrinho</h2>
+<ul id="cartItems"></ul>
+
+<h3>Finalizar Pedido</h3>
+<input id="name" placeholder="Nome completo">
+<input id="email" placeholder="E-mail">
+<select id="shipping">
+  <option value="Transportadora">Transportadora</option>
+  <option value="Correios">Correios</option>
+  <option value="Retirada">Retirada em loja</option>
+</select>
+
+<button onclick="checkout()">Enviar Pedido no WhatsApp</button>
+</div>
+
+<script>
+let cart = [];
+
+function addOption(select, product) {
+  if (!select.value) return;
+  cart.push(product + " - " + select.value);
+  renderCart();
+}
+
+function renderCart() {
+  const ul = document.getElementById("cartItems");
+  ul.innerHTML = "";
+  cart.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    ul.appendChild(li);
+  });
+}
+
+function checkout() {
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const shipping = document.getElementById("shipping").value;
+
+  let message = `Pedido Atacado TORINO%0A%0A`;
+  message += `Cliente: ${name}%0AEmail: ${email}%0AEnvio: ${shipping}%0A%0AProdutos:%0A`;
+
+  cart.forEach(i => message += `- ${i}%0A`);
+
+  window.open(`https://wa.me/5511939586226?text=${message}`, "_blank");
+}
+</script>
+
+</body>
+</html>
