@@ -1,75 +1,154 @@
-body {
+/* RESET */
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f7f5f2;
-  color: #222;
+  padding: 0;
 }
 
+/* BASE */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f7f5f2; /* off-white */
+  color: #1f1f1f;
+  line-height: 1.5;
+}
+
+/* HEADER */
 header {
   text-align: center;
-  padding: 20px;
+  padding: 32px 16px;
+  border-bottom: 1px solid #ddd;
 }
 
+header h1 {
+  font-size: 22px;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+header p {
+  font-size: 14px;
+  color: #555;
+  margin-top: 6px;
+}
+
+/* FILTROS */
 .filters {
   display: flex;
-  gap: 10px;
   justify-content: center;
-  margin-bottom: 20px;
+  gap: 12px;
+  padding: 20px;
+  flex-wrap: wrap;
 }
 
 select {
-  padding: 8px;
+  padding: 10px 14px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
 }
 
+/* PRODUTOS */
 #productList {
+  padding: 24px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 20px;
-  padding: 20px;
+  margin-right: 320px; /* espaço do carrinho */
 }
 
 .product {
   background: #fff;
-  padding: 15px;
-  border-radius: 6px;
+  border: 1px solid #e2e2e2;
+  padding: 16px;
+  border-radius: 4px;
 }
 
 .product h3 {
-  margin: 0 0 10px;
+  font-size: 15px;
+  margin-bottom: 10px;
+  font-weight: 600;
 }
 
+.product p {
+  font-size: 13px;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+/* BOTÕES */
 .product button {
   width: 100%;
   padding: 10px;
+  margin-top: 6px;
   background: #000;
   color: #fff;
   border: none;
+  font-size: 13px;
   cursor: pointer;
-  margin-top: 5px;
 }
 
+.product button:hover {
+  opacity: 0.9;
+}
+
+/* CARRINHO */
 #cart {
   position: fixed;
   right: 0;
   top: 0;
   width: 300px;
   height: 100%;
-  background: #fff;
-  padding: 15px;
+  background: #ffffff;
   border-left: 1px solid #ddd;
+  padding: 16px;
   overflow-y: auto;
 }
 
-#cart button {
-  width: 100%;
-  padding: 12px;
-  background: #000;
-  color: #fff;
+#cart h2 {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+#cart p {
+  font-size: 13px;
+}
+
+#cart hr {
   border: none;
-  margin-top: 10px;
+  border-top: 1px solid #eee;
+  margin: 8px 0;
 }
 
 .total {
   font-weight: bold;
-  margin-top: 10px;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+#cart button {
+  margin-top: 14px;
+  padding: 12px;
+  width: 100%;
+  background: #000;
+  color: #fff;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  #productList {
+    margin-right: 0;
+  }
+
+  #cart {
+    position: static;
+    width: 100%;
+    height: auto;
+    border-left: none;
+    border-top: 1px solid #ddd;
+  }
 }
